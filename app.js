@@ -10,46 +10,68 @@ const render = require("./lib/htmlRenderer");
 // Write code to use inquirer to gather information about the development team members,
 const teamMembers = [];
 function managerInfo() {
-    console.log("please enter manager info");
-    inquirer.prompt([
-        /* Pass your questions in here */
-        {
-            type: "input",
-            name: "managerName",
-            message: "What is your name?"
-        },
-        {
-            type: "input",
-            name: "managerID",
-            message: "What is your ID?"
-        },
-        {
-            type: "input",
-            name: "managerEmailAddress",
-            message: "What is Email Address?"
-        },
-        {
-            type: "input",
-            name: "managerOfficeNumber",
-            message: "What is your Office Number?"
-        }
+  console.log("please enter manager info");
+  inquirer
+    .prompt([
+      /* Pass your questions in here */
+      {
+        type: "input",
+        name: "managerName",
+        message: "What is your name?",
+      },
+      {
+        type: "input",
+        name: "managerID",
+        message: "What is your ID?",
+      },
+      {
+        type: "input",
+        name: "managerEmailAddress",
+        message: "What is Email Address?",
+      },
+      {
+        type: "input",
+        name: "managerOfficeNumber",
+        message: "What is your Office Number?",
+      },
     ])
-        .then(answers => {
-            console.log(answers);
-            // Use user feedback for... whatever!!
-            /*  })
-             .catch(error => {
-               if(error.isTtyError) {
-                 // Prompt couldn't be rendered in the current environment
-               } else {
-                 // Something else when wrong
-               } */
-        });
+    .then((answers) => {
+      console.log(answers);
+      //create new manager object
+      let manager = new Manager(
+        answers.managerName,
+        answers.managerID,
+        answers.managerEmailAddress,
+        answers.officeNumber
+      );
+      //collecting team members
+      teamMembers.push(manager);
+     addNewTeamMember()
+    });
+
 }
-// and to create objects for each team member (using the correct classes as blueprints!)
-// After the user has input all employees desired, call the `render` function (required
-// above) and pass in an array containing all employee objects; the `render` function will
-// generate and return a block of HTML including templated divs for each employee!
+
+function addNewTeamMember() {
+    inquirer
+    .prompt([
+      /* Pass your questions in here */
+      {
+        type: "list",
+        name: "userChoice",
+        message: "Which type of team Member would you like to Add?",
+        choices:[
+            "Engineer", "Intern", "No more members?"
+        ]
+
+      }
+    ])
+.then((data)=>{
+    if (data.userChoice = "Engineer")
+})
+
+
+//  above) and pass in an array containing all employee objects; the `render` function will
+// generate and return a block of HTML including tempted div for each employee!
 // After you have your html, you're now ready to create an HTML file using the HTML
 // returned from the `render` function. Now write it to a file named `team.html` in the
 // `output` folder. You can use the variable `outputPath` above target this location.
@@ -68,4 +90,4 @@ function managerInfo() {
 
 //calling the function starting point of application
 managerInfo();
-
+}
