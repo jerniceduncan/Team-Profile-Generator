@@ -14,9 +14,9 @@ A software engineering team generator command line application. The application 
 
 ## Demo
 
-[alt text](https://github.com/jerniceduncan/Team-Profile-Generator/assets/TPG.gif)
+[alt text](https://github.com/jerniceduncan/Team-Profile-Generator/Assets/TPG.gif)
 
-[alt text](https://github.com/jerniceduncan/Team-Profile-Generator/assets/10-OOP-homework-demo-2.png)
+[alt text](https://github.com/jerniceduncan/Team-Profile-Generator/Assets/10-OOP-homework-demo-2.png)
 
 
 ---
